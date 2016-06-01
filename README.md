@@ -2,8 +2,10 @@
 This are the homeworks for Soma's foundation class @ Columbia. 
 ## Here's another header
 - Here is some Text.
-- Here is more. 
+- Here is [http://borniert.com|Link] more. 
 - And even more.
 
 ### Here's another subtitle
-jfdfd fdfed
+We are doing *some stuff* here. We are doing some **other stuff** here. 
+* I am making a point. 
+* I am making another point. 
