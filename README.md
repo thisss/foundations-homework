@@ -1,5 +1,5 @@
 # foundations-homework
-This are the homeworks for Soma's foundation class @ Columbia. 
+This are the homeworks for [Soma's foundation class @ Columbia](http://ledeprogram.com). 
 ## Here's another header
 - Here is some Text.
 - Here is [Link](http://borniert.com) more. 
