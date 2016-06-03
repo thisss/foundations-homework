@@ -3,7 +3,8 @@
 # Homework 3
 
 # LISTS
-# 1) Make a list called "countries" - it should contain seven different countries and NOT be in alphabetical order
+# 1) Make a list called "countries" - it should contain seven different countries 
+# and NOT be in alphabetical order.
 countries = [ "Switzerland", "France", "Italia", "Poland", "USA", "China", "Peru"]
 
 # 2) Using a for loop, print each element of the list
@@ -14,35 +15,40 @@ for country in countries:
 countries.sort()
 
 # 4) Display the first element of the list
-print("\n")
 print(countries[0])
 
-# 5) Display the second-to-last element of the list using a line of code that will work no matter what the size of the list is (hint: len will be helpful)
-print("\n")
+# 5) Display the second-to-last element of the list using a line of code that 
+# will work no matter what the size of the list is (hint: len will be helpful).
 print(countries[len(countries)-2])
 
-# 6) Delete one of the countries from the list using its name (we didn't learn this in class).
+# 6) Delete one of the countries from the list using its name 
+# (we didn't learn this in class).
 del countries[3]
 
-# 7) Using a for loop, print each element of the list again, which should now be one element shorter.
-print("\n")
+# 7) Using a for loop, print each element of the list again, which should now be 
+# one element shorter.
 for country in countries:
 	print(country)
 
 #DICTIONARIES
-# These will require LATITUDE and LONGITUDE. You can ask Google for latitude and longitude by typing in *coordinates of CITYNAME*. 
-# You can also use http://itouchmap.com/latlong.html. Store the latitude and longitude without the N/S/E/W - if the latitude is S, make it negative. 
-# If the longitude is W, make it negative. See here for explanation: https://answers.yahoo.com/question/index?qid=20080211182008AAMdUe8
+# These will require LATITUDE and LONGITUDE. You can ask Google for latitude 
+# and longitude by typing in *coordinates of CITYNAME*. 
+# You can also use http://itouchmap.com/latlong.html. Store the latitude 
+# and longitude without the N/S/E/W - if the latitude is S, make it negative. 
+# If the longitude is W, make it negative. See here for explanation: 
+# https://answers.yahoo.com/question/index?qid=20080211182008AAMdUe8
 
-# 1) Make a dictionary called 'tree' that responds to 'name', 'species', 'age', 'location_name', 'latitude' and 'longitude'. Pick a tree from here: https://en.wikipedia.org/wiki/List_of_trees
+# 1) Make a dictionary called 'tree' that responds to 'name', 'species', 'age', 
+# 'location_name', 'latitude' and 'longitude'. Pick a tree from here: 
+# https://en.wikipedia.org/wiki/List_of_trees
 tree = { "name" : "Alishan Sacred Tree", "species" : "Cypress", "age" : 3000, "location_name" : "Alishan", "latitude" : 23.5166646, "longitude" : 120.7999968 }
 
-# 2) Print the sentence "{name} is a {years old} tree that is in {location_name}"
-print("\n")
+# 2) Print the sentence "{name} is a {years old} tree that is in {location_name}."
 print("The", tree["name"], "is a", tree["age"], "years old tree that is in", tree["location_name"] + ".")
 
-# 3) The coordinates of New York City are 40.7128° N, 74.0059° W. Check to see if the tree is south of NYC, and print "The tree {name} in {location} is south of NYC" 
-# if it is. If it isn't, print "The tree {name} in {location} is north of NYC"
+# 3) The coordinates of New York City are 40.7128° N, 74.0059° W. Check to see 
+# if the tree is south of NYC, and print "The tree {name} in {location} is south 
+# of NYC" if it is. If it isn't, print "The tree {name} in {location} is north of NYC"
 ny = {"name" : "New York City", "latitude" : 40.7128, "longitude" : 74.0059 }
 if ny["latitude"] > tree["latitude"]:
 	print("The", tree["name"], "in", tree["location_name"], "is south of NYC.")
@@ -53,7 +59,6 @@ else:
 
 # 4) Ask the user how old they are. If they are older than the tree, display "you are {XXX} years older than {name}." 
 # If they are younger than the tree, display "{name} was {XXX} years old when you were born."
-print("\n")
 userage = int(input("How old are you? "))
 if userage > tree["age"]:
 	print("You are kidding me -- you are really", userage - tree["age"], "older than the", tree["name"] + "?")
@@ -77,7 +82,6 @@ cities = [
 # When you get to the Falkland Islands, also display the message "The Falkland Islands are a biogeographical part of the mild Antarctic zone," 
 # which is a sentence I stole from Wikipedia.
 
-print("\n")
 for city in cities: 
 	if city["latitude"] > 0:
 		print(city["name"], "is above the equator.")
@@ -91,7 +95,6 @@ for city in cities:
 
 # 3) Loop through the list, printing whether each city is north of south of your tree from the previous section.
 
-print("\n")
 for city in cities:
 	if city["latitude"] > tree["latitude"]:
 		print(city["name"], "is north of the famous", tree["name"] + ".")
@@ -104,4 +107,4 @@ for city in cities:
 		print(city["name"], "is exactly on the same latitude than our beloved", tree["name"])
 
 print("\n")
-print("Please memorize these random facts! They might serve to impress someone at the next party.")
+print("Please memorize these random facts! They might serve to impress someone at the next party. Especially the fact that the Falkland Islands are a biogeographical part of the mild Antarctic zone.")
