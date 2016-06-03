@@ -24,15 +24,35 @@ programmer = {
 
 # 1. What kind of data structure (a.k.a. type) is programmer? Print it.
 
+print(type(programmer))
+
 # 2. What keys does programmer have? Print it.
+
+print(programmer.keys())
 
 # 3. Print the programmer's name.
 
-# 4. If the programmer has more than 30 fish, print "The programmer owns a lot of fish." If the programmer has 0 fish, say "the programmer has no fish." If the programmer has between 1 and 30 fish, print "the programmer has a few fish."
+print(programmer['name'])
+
+# 4. If the programmer has more than 30 fish, print "The programmer owns a lot 
+# of fish." If the programmer has 0 fish, say "the programmer has no fish." 
+# If the programmer has between 1 and 30 fish, print "the programmer has a few fish."
+
+if programmer['fish'] > 30:
+	print("The programmer owns a lot of fish.")
+elif programmer['fish'] == 0: 
+	print("The programmer has no fish.")
+elif programmer['fish'] < 30:
+	print("The programmer has a few fish.") 
 
 # 5. Print the sentence, "{programmer's name} knows {number of languages} languages")
 
+print(programmer['name'], "knows", len(programmer['languages']), "languages.")
+
 # 6. Use a loop to print each language the programmer knows
+
+for language in programmer['languages']:
+	print(language)
 
 ########
 #
@@ -58,13 +78,26 @@ company = {
 
 # 7. What type is the company variable? What are its keys?
 
+print("The company variable:", type(company))
+print("The company variable's keys:", company.keys())
+
 # 8. What data structure (a.k.a. type) is the 'coders' part of company?
+
+print("The type of the coders variable:", type(company['coders']))
 
 # 9. How many coders does the company have?
 
+print("The company has", len(company['coders']), "coders. Well, it's still a pretty small company.")
+
 # 10. Print the name of each manager.
 
+for manager in company['managers']: 
+	print(manager['name'])
+
 # 11. Print the number of languages each coder knows.
+
+for coder in company['coders']:
+	print("The coder", coder['name'], "knows", len(coder['languages']), "languages.")
 
 ########
 #
@@ -77,13 +110,28 @@ artist_search_result = {'artists': {'offset': 0, 'next': 'https://api.spotify.co
 
 # 12. What is the data type of the search result? Print it.
 
+print(type(artist_search_result))
+
 # 13. What are all of the keys that the search result has?
+
+print(artist_search_result.keys())
 
 # 14. Take a look at 'artists' - what keys does it have?
 
-# 15. Using len() with something-or-other would show me how many results I CURRENTLY have, but I want to know the TOTAL number of results Spotify has for my search result. From looking at the names of the keys under 'artists', how many total results are there?
+print(artist_search_result['artists'].keys())
 
-# 16. How popular is Kendrick Lamar vs. Anna Kendrick? Use a for loop to list the names and popularity of every artist.
+# 15. Using len() with something-or-other would show me how many results 
+# I CURRENTLY have, but I want to know the TOTAL number of results Spotify 
+# has for my search result. From looking at the names of the keys under 
+# 'artists', how many total results are there?
+
+print(len(artist_search_result['artists']['items']))
+
+# 16. How popular is Kendrick Lamar vs. Anna Kendrick? 
+# Use a for loop to list the names and popularity of every artist.
+
+for artist in artist_search_result['artists']['items']:
+	print("Name:", artist['name'], "/ Popularity:", artist['popularity'])
 
 ########
 #
@@ -96,18 +144,41 @@ playlist_search_result = {'playlists': {'offset': 0, 'next': 'https://api.spotif
 
 # 17. What is the data type of the search result? Print it.
 
+print(type(playlist_search_result))
+
 # 18. What are all of the keys that the search result has?
+
+print(playlist_search_result.keys())
 
 # 19. Take a look at 'playlists' - what keys does it have?
 
+print(playlist_search_result['playlists'].keys())
+
 # 20. Save the list of playlists into a variable called 'playlists'
+
+playlists = playlist_search_result['playlists']['items']
 
 # 21. Print the title of every playlist
 
+for playlist in playlists:
+	print(playlist['name'])
+
 # 22. Loop through every playlist, printing its keys
 
+for playlist in playlists:
+	print(playlist.keys())
+
 # 23. What is the data type of a playlist's 'tracks'?
+print(type(playlists[0]['tracks']))
 
 # 24. Print the name and number of tracks for every playlist
 
-# 25. We like curation! Loop through the playlists again, but only display those with fewer than 200 tracks.
+for playlist in playlists:
+	print("The Playlist \"" + playlist['name'] + "\" has", playlist['tracks']['total'], "tracks.")
+
+# 25. We like curation! Loop through the playlists again, but only display those 
+# with fewer than 200 tracks.
+
+for playlist in playlists:
+	if playlist['tracks']['total'] < 200:
+		print(playlist['name'])
