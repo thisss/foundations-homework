@@ -1,0 +1,3 @@
+# Homework # 2
+
+The Junyper Notebook is cool. To figure out the last part took me quite a while...
