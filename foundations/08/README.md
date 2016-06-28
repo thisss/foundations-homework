@@ -1,0 +1,6 @@
+# Homework 8
+In this homework assignement I was experimenting with two data sets that might be interesting in my daily work: one is about the tourism industry and one about animal's deseases in Switzerland. In both cases I focused on the area that our newspaper is mainly covering: the canton of Bern. The work with the two datasets proved to be very different. 
+
+[Sleeping tourists:](https://github.com/thisss/lede12-homework/blob/master/foundations/08/homework_08.ipynb) The raw data about the number of nights tourists spent in and around the town was difficult to use in pandas. Whatever I tried, it didn't work out. I finally spent a lot of time analyzing the data outsinde of pandas. The conclusion: Sometimes it would be more productive to first clear and restructure the dataset before starting to work with it. 
+
+[Sick animals:](https://github.com/thisss/lede12-homework/blob/master/foundations/08/homework_08_02.ipynb) I didn't have this kind of problems with the second dataset about diseases of animals. The work with pandas was straight forward. I faced problems working with the dates, though: They are in the local format and Pandas doesn't seem to recognize it. I finally tried it -- with a little help from a TA -- with the dateutil module and a lambda function. 
