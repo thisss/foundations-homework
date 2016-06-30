@@ -1,0 +1,6 @@
+http://www.nyc.gov/html/records/html/govpub/home.shtml
+
+Civil_List_2014.csv - https://data.cityofnewyork.us/City-Government/Civil-List-2014/ye3c-m4ga
+NYC_Civil_Service_Titles.csv - https://data.cityofnewyork.us/Business/NYC-Civil-Service-Titles/nzjr-3966
+
+pbnxt010.2013.D050114.rpt.pdf - http://www.nyc.gov/html/dcas/downloads/pdf/misc/pbnxt010.2013.D050114.rpt.pdf
