@@ -1,11 +1,3 @@
-# foundations-homework
-This are the homeworks for [Soma's foundation class @ Columbia](http://ledeprogram.com). 
-## Here's another header
-- Here is some Text.
-- Here is [Link](http://borniert.com) more. 
-- And even more.
+# Homework for the Lede 12 program @ Columbia University
 
-### Here's another subtitle
-We are doing *some stuff* here. We are doing some **other stuff** here. 
-* I am making a point. 
-* I am making another point. 
+You will find the homework for [Jonathan Soma's foundation class](jonathansoma.com/site/lede/foundations) and [Allison Parrish's database class](https://github.com/ledeprogram/data-and-databases) in this repository. 
