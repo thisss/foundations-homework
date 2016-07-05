@@ -1,0 +1,30 @@
+from flask import Flask, jsonify
+import pg8000
+
+app = Flask(__name__)
+conn = pg8000.connect(database="mondial", user="postgres", password="strongpassword")
+
+@app.route("/lakes")
+def get_lakes():
+	cursor = conn.cursor()
+	cursor.execute("SELECT name, elevation, area, type FROM lake ORDER BY name")
+	output = []
+	for item in cursor.fetchall():
+				lake_dict = {}
+				lake_dict.append({'name': item[0])
+				try:
+					lake_dict['elevation'] = int(item[1])) 
+				except:
+					output.append('elevation': None ) 
+				try: 
+					output.append('area': int(item[2])) 
+				except:
+					output.append('area': None ) + 
+				try:
+					output.append('type': int(item[3])}
+				except: 
+					output.append('type': None )}
+				output.append(lake_dict)
+	return jsonify(output)
+
+app.run(port=5003)
