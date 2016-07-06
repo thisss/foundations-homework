@@ -4,7 +4,7 @@ import pg8000
 app = Flask(__name__)
 conn = pg8000.connect(database="mondial", user='postgres', password='strongpassword')
 
-# Main function: Getting all the lakes.
+# Main function: Getting all the lakes. Checking if additional arguments are given.
 @app.route('/lakes')
 def get_lakes():
     output = []
@@ -14,13 +14,11 @@ def get_lakes():
     if lake_type !='':
         output = type_filter(lake_type, lake_sort, cursor)
         return jsonify(output)
+    elif sort_type !='':
+        output = sort_filter(lake_type, lake_sort, cursor)
+        return jsonify(output)
     else:
-        if lake_sort == 'elevation':
-            cursor.execute('SELECT name, elevation, area, type FROM lake ORDER BY elevation DESC')
-        elif lake_sort == 'area':
-            cursor.execute('SELECT name, elevation, area, type FROM lake ORDER BY area DESC')
-        else:
-            cursor.execute('SELECT name, elevation, area, type FROM lake ORDER BY name')
+        cursor.execute('SELECT name, elevation, area, type FROM lake ORDER BY name')
         for item in cursor.fetchall():
             temp_lake = {}
             temp_lake['name'] = item[0]
@@ -81,5 +79,38 @@ def type_filter(lake_type, lake_sort, cursor):
             temp_caldera['type'] = to_str(item[3])
             output.append(temp_caldera)
         return output
+
+# Function to filter according to the type value.
+def sort_filter(lake_type, lake_sort, cursor):
+    output = []
+    to_str(lake_type)
+    if lake_sort == 'elevation':
+        cursor.execute('SELECT name, elevation, area, type FROM lake ORDER BY elevation DESC')
+    elif lake_sort == 'area':
+        cursor.execute('SELECT name, elevation, area, type FROM lake ORDER BY area DESC')
+    else:
+
+
+        if lake_type == 'salt':
+        cursor.execute('SELECT name, elevation, area, type FROM lake WHERE type=\'salt\'')
+        for item in cursor.fetchall():
+            temp_salt = {}
+            temp_salt['name'] = item[0]
+            temp_salt['elevation'] = to_int(item[1])
+            temp_salt['area'] = to_int(item[2])
+            temp_salt['type'] = to_str(item[3])
+            output.append(temp_salt)
+        return output
+    elif lake_type == 'dam':
+        cursor.execute('SELECT name, elevation, area, type FROM lake WHERE type=\'dam\'')
+        for item in cursor.fetchall():
+            temp_dam = {}
+            temp_dam['name'] = item[0]
+            temp_dam['elevation'] = to_int(item[1])
+            temp_dam['area'] = to_int(item[2])
+            temp_dam['type'] = to_str(item[3])
+            output.append(temp_dam)
+        return output
+
 
 app.run()
