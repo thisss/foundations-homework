@@ -12,14 +12,17 @@ def get_lakes():
     lake_type = request.args.get('type', '')
     lake_sort = request.args.get('sort', '')
     if lake_type !='' and lake_sort !='':
-        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type=\'" + lake_type + "\' ORDER BY " + lake_sort + " DESC")
+#        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type=\'" + lake_type + "\' ORDER BY " + lake_sort + " DESC")
+        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type=\'%s\' ORDER BY %s DESC"), % [lake_type, lake_sort]
 #        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type={} ORDER BY {} DESC".format(lake_type, lake_sort))
     elif lake_type != '':
-        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type=\'" + lake_type + "\'")
+#        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type=\'" + lake_type + "\'")
 #        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type={}".format(lake_type))
+        cursor.execute("SELECT name, elevation, area, type FROM lake WHERE type=%s", % lake_type)
     elif lake_sort != '':
         print(lake_sort)
-        cursor.execute("SELECT name, elevation, area, type FROM lake ORDER BY " + lake_sort + " DESC")
+#        cursor.execute("SELECT name, elevation, area, type FROM lake ORDER BY " + lake_sort + " DESC")
+        cursor.execute("SELECT name, elevation, area, type FROM lake ORDER BY %s DESC"), lake_sort
 #        cursor.execute("SELECT name, elevation, area, type FROM lake ORDER BY {} DESC".format(lake_sort))
 #        cursor.execute("SELECT name, elevation, area, type FROM lake ORDER BY " + lake_sort + " DESC") #, [lake_sort])
     else:
