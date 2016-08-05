@@ -21,6 +21,6 @@ You will find the process of working on the data in the Jupyter Notebook. The fi
 
 ### Three possible headlines
 
-- Our best guests don't come back
+- We should embrace the Germans!
 - The hotels are badly relying on German speaking guests
 - The weak Euro causes troubles for tourism
